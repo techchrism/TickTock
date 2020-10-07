@@ -1,0 +1,16 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "me.techchrism.ticktock.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "mixins": [
+    "ThreadedAnvilChunkStorageInvoker",
+    "ChunkTicketManagerInvoker",
+    "ChunkTicketTypeAccessor"
+  ],
+  "client": [],
+  "server": [],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

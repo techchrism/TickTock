@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "id": "ticktock",
+  "version": "${version}",
+  "name": "TickTock",
+  "description": "Provide random ticks to all loaded chunks",
+  "authors": [
+    "Techdoodle"
+  ],
+  "contact": {},
+  "license": "MIT",
+  "icon": "assets/ticktock/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "me.techchrism.ticktock.Ticktock"
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=0.10.1+build.209",
+    "fabric": "*",
+    "minecraft": "1.16.1"
+  },
+  "mixins": [
+    "ticktock.mixins.json"
+  ],
+  "accessWidener": "ticktock.accesswidener"
+}
