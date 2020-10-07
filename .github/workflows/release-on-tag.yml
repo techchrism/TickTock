@@ -1,4 +1,4 @@
-name: Maven Package and Release
+name: Gradle Release
 on:
   push:
     tags:
@@ -32,7 +32,7 @@ jobs:
       - uses: frabert/replace-string-action@v1.2
         id: get_name
         with:
-          pattern: 'v(.+)'
+          pattern: '.+v(.+)'
           string: ${{ github.ref }}
           replace-with: 'ticktock-$1.jar'
       - name: Upload Release Asset
