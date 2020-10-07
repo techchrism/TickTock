@@ -9,6 +9,7 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: 1.8
-      - uses: eskatos/gradle-command-action@v1
-          with:
-            arguments: build
+      - name: Gradle Build
+        uses: eskatos/gradle-command-action@v1
+        with:
+          arguments: build
