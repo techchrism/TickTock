@@ -11,11 +11,11 @@ import net.minecraft.util.math.ChunkPos;
 public interface ThreadedAnvilChunkStorageInvoker
 {
     @Invoker("isTooFarFromPlayersToSpawnMobs")
-    boolean invokeIsTooFarFromPlayersToSpawnMobs(ChunkPos arg);
+    boolean ticktock_invokeIsTooFarFromPlayersToSpawnMobs(ChunkPos arg);
     
     @Invoker("entryIterator")
-    Iterable<ChunkHolder> invokeEntryIterator();
+    Iterable<ChunkHolder> ticktock_invokeEntryIterator();
     
     @Invoker("getTicketManager")
-    ThreadedAnvilChunkStorage.TicketManager invokeGetTicketManager();
+    ThreadedAnvilChunkStorage.TicketManager ticktock_invokeGetTicketManager();
 }

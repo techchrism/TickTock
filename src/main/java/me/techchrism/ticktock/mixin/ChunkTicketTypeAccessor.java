@@ -9,5 +9,5 @@ import net.minecraft.server.world.ChunkTicketType;
 public interface ChunkTicketTypeAccessor
 {
     @Accessor("name")
-    String getName();
+    String ticktock_getName();
 }

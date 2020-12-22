@@ -31,17 +31,17 @@ public class Ticktock implements ModInitializer
     private void tick(ServerWorld world)
     {
         ThreadedAnvilChunkStorageInvoker storage = (ThreadedAnvilChunkStorageInvoker) world.getChunkManager().threadedAnvilChunkStorage;
-        ChunkTicketManagerInvoker ticketManager = (ChunkTicketManagerInvoker) storage.invokeGetTicketManager();
+        ChunkTicketManagerInvoker ticketManager = (ChunkTicketManagerInvoker) storage.ticktock_invokeGetTicketManager();
         int randomTickSpeed = world.getGameRules().getInt(GameRules.RANDOM_TICK_SPEED);
         if(randomTickSpeed == 0)
         {
             return;
         }
-        storage.invokeEntryIterator().forEach(chunkHolder ->
+        storage.ticktock_invokeEntryIterator().forEach(chunkHolder ->
         {
             // Ensure the chunk is force loaded rather than a "regular" chunk outside the 128-block radius
-            boolean forced = ticketManager.invokeGetTicketSet(chunkHolder.getPos().toLong()).stream().anyMatch(chunkTicket ->
-                    ((ChunkTicketTypeAccessor) chunkTicket.getType()).getName().equals("forced"));
+            boolean forced = ticketManager.ticktock_invokeGetTicketSet(chunkHolder.getPos().toLong()).stream().anyMatch(chunkTicket ->
+                    ((ChunkTicketTypeAccessor) chunkTicket.getType()).ticktock_getName().equals("forced"));
             if(!forced)
             {
                 return;
@@ -53,7 +53,7 @@ public class Ticktock implements ModInitializer
                 return;
             }
             // Make sure it's too far to get regular random ticks
-            if(storage.invokeIsTooFarFromPlayersToSpawnMobs(chunkHolder.getPos()))
+            if(storage.ticktock_invokeIsTooFarFromPlayersToSpawnMobs(chunkHolder.getPos()))
             {
                 WorldChunk chunk = optionalWorldChunk.get();
                 Profiler profiler = world.getProfiler();

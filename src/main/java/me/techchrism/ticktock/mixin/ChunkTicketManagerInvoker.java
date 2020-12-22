@@ -11,11 +11,11 @@ import net.minecraft.util.collection.SortedArraySet;
 public interface ChunkTicketManagerInvoker
 {
     @Invoker("getLevel")
-    static int invokeGetLevel(SortedArraySet<ChunkTicket<?>> arg)
+    static int ticktock_invokeGetLevel(SortedArraySet<ChunkTicket<?>> arg)
     {
         throw new AssertionError();
     }
     
     @Invoker("getTicketSet")
-    SortedArraySet<ChunkTicket<?>> invokeGetTicketSet(long position);
+    SortedArraySet<ChunkTicket<?>> ticktock_invokeGetTicketSet(long position);
 }
