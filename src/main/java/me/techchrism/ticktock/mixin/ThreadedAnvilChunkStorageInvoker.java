@@ -4,6 +4,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.gen.Invoker;
 
 import net.minecraft.server.world.ChunkHolder;
+import net.minecraft.server.world.ChunkTicketManager;
 import net.minecraft.server.world.ThreadedAnvilChunkStorage;
 import net.minecraft.util.math.ChunkPos;
 
@@ -17,5 +18,5 @@ public interface ThreadedAnvilChunkStorageInvoker
     Iterable<ChunkHolder> ticktock_invokeEntryIterator();
     
     @Invoker("getTicketManager")
-    ThreadedAnvilChunkStorage.TicketManager ticktock_invokeGetTicketManager();
+    ChunkTicketManager ticktock_invokeGetTicketManager();
 }
