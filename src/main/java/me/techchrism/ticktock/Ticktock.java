@@ -13,6 +13,7 @@ import net.minecraft.server.world.*;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.profiler.Profiler;
 import net.minecraft.world.GameRules;
+import net.minecraft.world.chunk.Chunk;
 import net.minecraft.world.chunk.ChunkSection;
 import net.minecraft.world.chunk.WorldChunk;
 
@@ -48,20 +49,21 @@ public class Ticktock implements ModInitializer
             }
             
             Optional<WorldChunk> optionalWorldChunk = ((Either) chunkHolder.getTickingFuture().getNow(ChunkHolder.UNLOADED_WORLD_CHUNK)).left();
-            if (!optionalWorldChunk.isPresent())
+            if (optionalWorldChunk.isEmpty())
             {
                 return;
             }
             // Make sure it's too far to get regular random ticks
-            if(storage.ticktock_invokeIsTooFarFromPlayersToSpawnMobs(chunkHolder.getPos()))
+            if(!storage.ticktock_invokeShouldTick(chunkHolder.getPos()))
             {
+                System.out.println("Start ticking forceloaded chunk at " + chunkHolder.getPos().toString());
                 WorldChunk chunk = optionalWorldChunk.get();
                 Profiler profiler = world.getProfiler();
                 int startX = chunk.getPos().getStartX();
                 int startZ = chunk.getPos().getStartZ();
                 for(ChunkSection chunkSection : chunk.getSectionArray())
                 {
-                    if(chunkSection != WorldChunk.EMPTY_SECTION && chunkSection.hasRandomTicks())
+                    if(chunkSection != null && chunkSection.hasRandomTicks())
                     {
                         int yOffset = chunkSection.getYOffset();
                         for(int m = 0; m < randomTickSpeed; m++)

@@ -11,8 +11,8 @@ import net.minecraft.util.math.ChunkPos;
 @Mixin(ThreadedAnvilChunkStorage.class)
 public interface ThreadedAnvilChunkStorageInvoker
 {
-    @Invoker("isTooFarFromPlayersToSpawnMobs")
-    boolean ticktock_invokeIsTooFarFromPlayersToSpawnMobs(ChunkPos arg);
+    @Invoker("shouldTick")
+    boolean ticktock_invokeShouldTick(ChunkPos arg);
     
     @Invoker("entryIterator")
     Iterable<ChunkHolder> ticktock_invokeEntryIterator();
