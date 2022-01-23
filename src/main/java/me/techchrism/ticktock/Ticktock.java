@@ -56,7 +56,6 @@ public class Ticktock implements ModInitializer
             // Make sure it's too far to get regular random ticks
             if(!storage.ticktock_invokeShouldTick(chunkHolder.getPos()))
             {
-                System.out.println("Start ticking forceloaded chunk at " + chunkHolder.getPos().toString());
                 WorldChunk chunk = optionalWorldChunk.get();
                 Profiler profiler = world.getProfiler();
                 int startX = chunk.getPos().getStartX();
