@@ -60,11 +60,14 @@ public class Ticktock implements ModInitializer
                 Profiler profiler = world.getProfiler();
                 int startX = chunk.getPos().getStartX();
                 int startZ = chunk.getPos().getStartZ();
-                for(ChunkSection chunkSection : chunk.getSectionArray())
+                int bottomY = chunk.getBottomY();
+                ChunkSection[] chunkSections = chunk.getSectionArray();
+                for (int i = 0; i < chunkSections.length; i++)
                 {
+                    ChunkSection chunkSection = chunkSections[i];
                     if(chunkSection != null && chunkSection.hasRandomTicks())
                     {
-                        int yOffset = chunkSection.getYOffset();
+                        int yOffset = bottomY + i * 16;
                         for(int m = 0; m < randomTickSpeed; m++)
                         {
                             BlockPos randomPosInChunk = world.getRandomPosInChunk(startX, yOffset, startZ, 15);

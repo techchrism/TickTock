@@ -19,7 +19,7 @@
   "depends": {
     "fabricloader": ">=0.10.1+build.209",
     "fabric": "*",
-    "minecraft": ">=1.19.2"
+    "minecraft": ">=1.20.1"
   },
   "mixins": [
     "ticktock.mixins.json"
